@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AA Arauak - GrAL</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Personalizado Externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Menú flotante superior izquierdo -->
+    <div id="header-container"></div>
+
+    <main class="flex-grow-1">
+
+        <!-- Cabecera limpia con título y línea -->
+        <div class="document-header">
+            <div class="container">
+                <h1 class="document-title">Adimen Artifizialeko Arauak</h1>
+                <div class="document-underline"></div>
+            </div>
+        </div>
+
+        <div class="container pb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 document-content">
+
+                    <h2>Adimen Artifizialeko GrALa</h2>
+                    <p>
+                        Adimen Artifizialeko Gradu Amaierako Lanari buruzko informazio espezifikoa aurki dezakezu atal
+                        honetan. GRALaren araudi orokorra eta bi graduentzat komunak diren alderdi nagusiak Araudia
+                        atalean azaltzen dira. </p>
+
+                    <h2>GrALaren ezaugarriak</h2>
+                    <p>
+                        Adimen Artifizialeko Graduan, GrALa derrigorrezko irakasgaia da eta 12 kreditu ditu. Ikasle
+                        bakoitzak banaka egiten du lana, eta zuzendari baten edo gehiagoren gainbegiratzea izango du.
+                        GrALaren helburuen artean graduan lortutako gaitasunak aplikatzea, datuak bilatu, kudeatu,
+                        antolatu eta interpretatzea eta ezagutza horiek praktikan erabiltzea daude.
+                    </p>
+                    <h2>GrALaren garapena</h2>
+                    <p>
+                        Lana egitean, ikasleak proposatutako helburuak lortu eta garapenean sortzen diren zailtasunak
+                        modu autonomoan konpontzeko gai dela erakutsi beharko du. Horrez gain, lana planifikatu eta
+                        kudeatu, memoria idatzi eta egindako lana jendaurrean azaldu eta defendatu beharko du.
+                    </p>
+                    <p>
+                        GrALaren gaia graduan garatutako edukiekin lotuta egongo da. Fakultateko GrAL Batzordeak lanen
+                        eskaintza eta esleipen-prozedura zehazten ditu; besteak beste, fakultateak eskainitako lanak,
+                        ikasleek proposatutako lanak eta kanpo-erakundeekin egindako lanak aurreikusten dira.
+                    </p>
+
+                    <h2>Zuzendaritza</h2>
+                    <p>
+                        Fakultateko kide diren irakasleek zuzendu ahal izango dituzte GrALak, eta fakultatean
+                        erroldatutako doktoreek ere zuzendu ahal izango dute, zuzendarikideen artean fakultateko
+                        irakasle bat badago. Zuzendariak lanaren ezaugarriak azaldu, orientazioa eman eta garapenaren
+                        jarraipena egingo du.
+                    </p>
+
+                    <h2>Aurkezpena eta ebaluazioa</h2>
+                    <p>
+                        GrALaren memoria ADDI plataforman entregatu behar da. Defentsa publikoa da, eta ikasle bakoitzak
+                        20 minutuko denbora gomendatua izango du, inoiz ez ordu erdi baino gehiago. Ebaluazioa
+                        epaimahaiak egingo du, gida eta tituluaren egiaztapeneko memoria kontuan hartuta.
+                    </p>
+
+                    <div>
+                        <p class="mt-3">
+                            <a href="https://egela.ehu.eus/pluginfile.php/12476024/mod_resource/content/2/Normativa%20AAG%20euskera.pdf"
+                                target="_blank" class="text-decoration-underline fw-bold" style="color: var(--azul);">
+                                Joan EHUko AA-ko araudi ofizialera
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts de carga dinámica -->
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('header-container').innerHTML = data; })
+            .catch(error => console.error('Error cargando el menú:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-container').innerHTML = data; })
+            .catch(error => console.error('Error cargando el footer:', error));
+    </script>
+</body>
+
+</html>

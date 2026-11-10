@@ -1,0 +1,275 @@
+:root {
+  --azul: #0b2a5b;
+  --azul-hover: #16407f;
+  --acento: #c8a24a;
+  --fondo: #f3f5f8;
+  --borde: #d5dbe5;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: var(--fondo);
+  color: var(--azul);
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  min-height: 180px;
+  max-height: 480px;
+  object-fit: cover;
+  border-bottom: 5px solid var(--acento);
+}
+
+.menu .btn {
+  background-color: var(--azul);
+  border: 1px solid var(--azul);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.95rem 1.25rem;
+  font-size: 1.05rem;
+  border-radius: 0.375rem;
+  text-align: left;
+  box-shadow: 0 1px 2px rgba(11, 42, 91, 0.15);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.menu .btn:hover,
+.menu .btn:focus-visible {
+  background-color: var(--azul-hover);
+  border-color: var(--azul-hover);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(11, 42, 91, 0.25);
+}
+
+.menu .btn:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.menu .ficha {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 0.375rem;
+}
+
+.menu .icono {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: var(--azul);
+  color: #ffffff;
+  border-top: 3px solid var(--acento);
+}
+
+footer a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: var(--acento);
+}
+
+.text-acento {
+  color: var(--acento);
+}
+
+/* Estilos específicos para la sección "About us" */
+.hero-about {
+  position: relative;
+  background: linear-gradient(rgba(11, 42, 91, 0.75), rgba(11, 42, 91, 0.75)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  height: 30vh;
+  min-height: 180px;
+  max-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--acento);
+}
+
+.hero-title {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-underline {
+  width: 60px;
+  height: 4px;
+  background-color: var(--acento);
+  border-radius: 2px;
+}
+
+.about-content {
+  line-height: 1.7;
+  color: var(--azul);
+  text-align: justify;
+}
+
+@media (min-width: 992px) {
+  .menu .btn {
+    padding: 1.3rem 1.5rem;
+    font-size: 1.15rem;
+  }
+
+  .menu .ficha {
+    width: 68px;
+    height: 68px;
+    padding: 10px;
+  }
+}
+
+.text-acento {
+  color: var(--acento);
+}
+
+/* Estilos para el menú desplegable flotante (hamburguesa) a la izquierda */
+.menu-flotante-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* Cambiado de right a left */
+  z-index: 1030;
+  background-color: var(--azul);
+  border: 2px solid var(--acento);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.menu-flotante-btn:hover {
+  background-color: var(--azul-hover);
+  color: var(--acento);
+  transform: scale(1.05);
+}
+
+.offcanvas-header-corp {
+  background-color: var(--azul);
+  color: #fff;
+  border-bottom: 3px solid var(--acento);
+}
+
+.offcanvas-body-corp {
+  background-color: var(--fondo);
+}
+
+.offcanvas-body-corp .list-group-item {
+  background-color: transparent;
+  color: var(--azul);
+  border-color: var(--borde);
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.offcanvas-body-corp .list-group-item:hover {
+  background-color: var(--azul);
+  color: #fff;
+}
+
+/* Estilos específicos para la página Araudia */
+.hero-araudia {
+  position: relative;
+  background: linear-gradient(rgba(11, 42, 91, 0.75), rgba(11, 42, 91, 0.75)), url('https://www.ehu.eus/documents/d/campusa/campus_foto10') center/cover no-repeat;
+  height: 30vh;
+  min-height: 180px;
+  max-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--acento);
+}
+
+.araudia-content h2 {
+  color: var(--azul);
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid var(--acento);
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.araudia-content p {
+  line-height: 1.7;
+  color: var(--azul);
+  text-align: justify;
+}
+
+.btn-corp-custom {
+  background-color: var(--azul);
+  border: 2px solid var(--acento);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-corp-custom:hover {
+  background-color: var(--azul-hover);
+  color: var(--acento);
+  transform: scale(1.02);
+}
+
+/* Estilos para páginas secundarias tipo documento limpio (sin foto) */
+.document-header {
+  padding: 3.5rem 0 2rem 0;
+  text-align: center;
+}
+
+.document-title {
+  color: var(--azul);
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.document-underline {
+  width: 70px;
+  height: 4px;
+  background-color: var(--acento);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.document-content h2 {
+  color: var(--azul);
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.document-content p {
+  line-height: 1.7;
+  color: var(--azul);
+  text-align: justify;
+}
+
+.document-content ul {
+  color: var(--azul);
+  line-height: 1.6;
+}
