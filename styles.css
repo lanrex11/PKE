@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&display=swap');
+
 /* =========================================================
    Tema inspirado en la nueva identidad de la EHU:
    - Color principal: "uniberde" (verde vibrante)
@@ -39,14 +41,15 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: 'Bitter', Georgia, 'Times New Roman', serif;
   background-color: var(--fondo);
   color: var(--texto);
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--tinta);
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 a {
