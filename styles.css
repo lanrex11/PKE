@@ -1,17 +1,63 @@
+/* =========================================================
+   Tema inspirado en la nueva identidad de la EHU:
+   - Color principal: "uniberde" (verde vibrante)
+   - Paleta de apoyo: amanecer, cielo, luz y niebla
+   - Fondos blancos/claros, tinta casi negra, mucho aire
+   Los valores hex son aproximados (la EHU no publica el CSS):
+   ajústalos en el :root si tienes los oficiales.
+   ========================================================= */
 :root {
-  --azul: #0b2a5b;
-  --azul-hover: #16407f;
-  --acento: #c8a24a;
-  --fondo: #f3f5f8;
-  --borde: #d5dbe5;
+  --verde: #00c46a;           /* uniberde: acento principal */
+  --verde-hover: #00a85b;
+  --verde-oscuro: #007a40;    /* verde para texto/enlaces sobre blanco (contraste AA) */
+  --verde-suave: #e3f7ec;
+
+  --tinta: #121a16;           /* casi negro: texto, cabeceras, footer */
+  --tinta-2: #1f2a24;
+  --texto: #25302a;
+  --texto-suave: #5a665f;
+
+  --cielo: #dff0f7;           /* paleta de apoyo */
+  --niebla: #eef1ef;
+  --luz: #fbfaf5;
+  --amanecer: #f7dcc0;
+
+  --fondo: #f4f6f4;
+  --superficie: #ffffff;
+  --borde: #dde3df;
+
+  --radio: 1rem;
+  --radio-sm: 0.625rem;
+  --pill: 999px;
+  --sombra-sm: 0 1px 2px rgba(18, 26, 22, 0.06);
+  --sombra-md: 0 6px 20px rgba(18, 26, 22, 0.09);
+  --sombra-lg: 0 14px 40px rgba(18, 26, 22, 0.16);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   background-color: var(--fondo);
-  color: var(--azul);
+  color: var(--texto);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--tinta);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--verde-oscuro);
+}
+
+a:hover {
+  color: var(--tinta);
+}
+
+/* ---------- Foto de cabecera ---------- */
 .foto {
   display: block;
   width: 100%;
@@ -19,33 +65,39 @@ body {
   min-height: 180px;
   max-height: 480px;
   object-fit: cover;
-  border-bottom: 5px solid var(--acento);
+  border-bottom: 5px solid var(--verde);
 }
 
+/* ---------- Menú principal (botones) ---------- */
+/* Tarjetas blancas con acento verde, como los accesos de la home de la EHU */
 .menu .btn {
-  background-color: var(--azul);
-  border: 1px solid var(--azul);
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--verde);
+  color: var(--tinta);
+  font-weight: 600;
+  letter-spacing: -0.005em;
   padding: 0.95rem 1.25rem;
   font-size: 1.05rem;
-  border-radius: 0.375rem;
+  border-radius: var(--radio);
   text-align: left;
-  box-shadow: 0 1px 2px rgba(11, 42, 91, 0.15);
-  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--sombra-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              background-color 0.18s ease, border-color 0.18s ease;
 }
 
 .menu .btn:hover,
 .menu .btn:focus-visible {
-  background-color: var(--azul-hover);
-  border-color: var(--azul-hover);
-  color: #fff;
-  box-shadow: 0 3px 8px rgba(11, 42, 91, 0.25);
+  background-color: var(--verde);
+  border-color: var(--verde);
+  border-left-color: var(--tinta);
+  color: var(--tinta);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
 }
 
 .menu .btn:focus-visible {
-  outline: 3px solid var(--acento);
+  outline: 3px solid var(--tinta);
   outline-offset: 2px;
 }
 
@@ -53,10 +105,10 @@ body {
   flex-shrink: 0;
   width: 56px;
   height: 56px;
-  padding: 8px;
-  background-color: #fff;
+  padding: 10px;
+  background-color: var(--niebla);
   border: 1px solid var(--borde);
-  border-radius: 0.375rem;
+  border-radius: var(--radio-sm);
 }
 
 .menu .icono {
@@ -65,31 +117,31 @@ body {
   object-fit: contain;
 }
 
-/* Estilos del pie de página */
+/* ---------- Pie de página ---------- */
 footer {
-  background-color: var(--azul);
+  background-color: var(--tinta);
   color: #ffffff;
-  border-top: 3px solid var(--acento);
+  border-top: 4px solid var(--verde);
 }
 
 footer a {
-  color: #e2e8f0;
+  color: #d5ddd8;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 footer a:hover {
-  color: var(--acento);
+  color: var(--verde);
 }
 
 .text-acento {
-  color: var(--acento);
+  color: var(--verde);
 }
 
-/* Estilos específicos para la sección "About us" */
-.hero-about {
+/* ---------- Heros (About us / Araudia) ---------- */
+.hero-about,
+.hero-araudia {
   position: relative;
-  background: linear-gradient(rgba(11, 42, 91, 0.75), rgba(11, 42, 91, 0.75)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   height: 30vh;
   min-height: 180px;
   max-height: 480px;
@@ -97,166 +149,111 @@ footer a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 5px solid var(--acento);
+  border-bottom: 5px solid var(--verde);
+}
+
+.hero-about {
+  background:
+    linear-gradient(135deg, rgba(18, 26, 22, 0.82) 0%, rgba(18, 26, 22, 0.45) 100%),
+    url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+}
+
+.hero-araudia {
+  background:
+    linear-gradient(135deg, rgba(18, 26, 22, 0.82) 0%, rgba(18, 26, 22, 0.45) 100%),
+    url('https://www.soycest.mx/hubfs/cest-balanza-de-la-justicia.jpg') center/cover no-repeat;
 }
 
 .hero-title {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
 }
 
 .hero-underline {
-  width: 60px;
-  height: 4px;
-  background-color: var(--acento);
-  border-radius: 2px;
+  width: 64px;
+  height: 5px;
+  background-color: var(--verde);
+  border-radius: var(--pill);
 }
 
+/* ---------- Contenido de texto ---------- */
 .about-content {
-  line-height: 1.7;
-  color: var(--azul);
+  line-height: 1.75;
+  color: var(--texto);
   text-align: justify;
-}
-
-@media (min-width: 992px) {
-  .menu .btn {
-    padding: 1.3rem 1.5rem;
-    font-size: 1.15rem;
-  }
-
-  .menu .ficha {
-    width: 68px;
-    height: 68px;
-    padding: 10px;
-  }
-}
-
-.text-acento {
-  color: var(--acento);
-}
-
-/* Estilos para el menú desplegable flotante (hamburguesa) a la izquierda */
-.menu-flotante-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  /* Cambiado de right a left */
-  z-index: 1030;
-  background-color: var(--azul);
-  border: 2px solid var(--acento);
-  color: #fff;
-  width: 48px;
-  height: 48px;
-  border-radius: 0.375rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.15s ease, transform 0.15s ease;
-}
-
-.menu-flotante-btn:hover {
-  background-color: var(--azul-hover);
-  color: var(--acento);
-  transform: scale(1.05);
-}
-
-.offcanvas-header-corp {
-  background-color: var(--azul);
-  color: #fff;
-  border-bottom: 3px solid var(--acento);
-}
-
-.offcanvas-body-corp {
-  background-color: var(--fondo);
-}
-
-.offcanvas-body-corp .list-group-item {
-  background-color: transparent;
-  color: var(--azul);
-  border-color: var(--borde);
-  font-weight: 500;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.offcanvas-body-corp .list-group-item:hover {
-  background-color: var(--azul);
-  color: #fff;
-}
-
-/* Estilos específicos para la página Araudia */
-.hero-araudia {
-  position: relative;
-  background: linear-gradient(rgba(11, 42, 91, 0.75), rgba(11, 42, 91, 0.75)), url('https://www.soycest.mx/hubfs/cest-balanza-de-la-justicia.jpg') center/cover no-repeat;
-  height: 30vh;
-  min-height: 180px;
-  max-height: 480px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 5px solid var(--acento);
+  hyphens: auto;
 }
 
 .araudia-content h2 {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 700;
   font-size: 1.4rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 3px solid var(--acento);
+  padding-bottom: 0.35rem;
+  border-bottom: 4px solid var(--verde);
   display: inline-block;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
 .araudia-content p {
-  line-height: 1.7;
-  color: var(--azul);
+  line-height: 1.75;
+  color: var(--texto);
   text-align: justify;
+  hyphens: auto;
 }
 
+/* Botón principal: verde con texto oscuro, forma píldora */
 .btn-corp-custom {
-  background-color: var(--azul);
-  border: 2px solid var(--acento);
-  color: #fff;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  background-color: var(--verde);
+  border: 2px solid var(--verde);
+  color: var(--tinta);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--pill);
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   text-decoration: none;
 }
 
 .btn-corp-custom:hover {
-  background-color: var(--azul-hover);
-  color: var(--acento);
-  transform: scale(1.02);
+  background-color: var(--verde-hover);
+  border-color: var(--verde-hover);
+  color: var(--tinta);
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-md);
 }
 
-/* Estilos para páginas secundarias tipo documento limpio (sin foto) */
+.btn-corp-custom:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+/* ---------- Páginas tipo documento (sin foto) ---------- */
 .document-header {
   padding: 3.5rem 0 2rem 0;
   text-align: center;
 }
 
 .document-title {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 700;
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.3rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
 }
 
 .document-underline {
   width: 70px;
-  height: 4px;
-  background-color: var(--acento);
+  height: 5px;
+  background-color: var(--verde);
   margin: 0 auto;
-  border-radius: 2px;
+  border-radius: var(--pill);
 }
 
 .document-content h2 {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 700;
   font-size: 1.35rem;
   margin-top: 2.5rem;
@@ -264,19 +261,74 @@ footer a:hover {
 }
 
 .document-content p {
-  line-height: 1.7;
-  color: var(--azul);
+  line-height: 1.75;
+  color: var(--texto);
   text-align: justify;
+  hyphens: auto;
 }
 
 .document-content ul {
-  color: var(--azul);
-  line-height: 1.6;
+  color: var(--texto);
+  line-height: 1.7;
 }
 
-/* Estilos específicos para la página de Memoriak / ADDI */
+/* ---------- Menú flotante (hamburguesa, a la izquierda) ---------- */
+.menu-flotante-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1030;
+  background-color: var(--verde);
+  border: 2px solid var(--tinta);
+  color: var(--tinta);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-lg);
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.menu-flotante-btn:hover {
+  background-color: var(--tinta);
+  color: var(--verde);
+  transform: scale(1.06);
+}
+
+.menu-flotante-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.offcanvas-header-corp {
+  background-color: var(--tinta);
+  color: #fff;
+  border-bottom: 4px solid var(--verde);
+}
+
+.offcanvas-body-corp {
+  background-color: var(--luz);
+}
+
+.offcanvas-body-corp .list-group-item {
+  background-color: transparent;
+  color: var(--tinta);
+  border-color: var(--borde);
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.offcanvas-body-corp .list-group-item:hover {
+  background-color: var(--verde);
+  color: var(--tinta);
+  padding-left: 1.5rem;
+}
+
+/* ---------- Memoriak / ADDI ---------- */
 .memoria-item {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .memoria-item:hover {
@@ -286,20 +338,20 @@ footer a:hover {
 .thumbnail-box {
   width: 140px;
   height: 100px;
-  background-color: #e9ecef;
+  background-color: var(--cielo);
   border: 1px solid var(--borde);
-  border-radius: 0.25rem;
+  border-radius: var(--radio-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6c757d;
+  color: var(--texto-suave);
   font-size: 0.85rem;
   font-weight: 500;
   flex-shrink: 0;
 }
 
 .memoria-titulo {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 600;
   font-size: 1.15rem;
   text-decoration: none;
@@ -307,109 +359,108 @@ footer a:hover {
 }
 
 .memoria-titulo:hover {
-  color: var(--azul-hover);
+  color: var(--verde-oscuro);
   text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
 }
 
 .memoria-meta {
   font-size: 0.875rem;
-  color: #555;
+  color: var(--texto-suave);
 }
 
 .memoria-desc {
   font-size: 0.95rem;
-  color: #333;
-  line-height: 1.5;
+  color: var(--texto);
+  line-height: 1.55;
 }
 
-/* Estilos específicos para la página de Galdetegia (Cuestionario) */
+/* ---------- Galdetegia (cuestionario) ---------- */
 .galdetegia-card {
-  background-color: #fff;
+  background-color: var(--superficie);
   border: 1px solid var(--borde);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.form-check-input:checked {
-  background-color: var(--azul);
-  border-color: var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-sm);
 }
 
 .modal-header-corp {
-  background-color: var(--azul);
+  background-color: var(--tinta);
   color: #fff;
-  border-bottom: 3px solid var(--acento);
+  border-bottom: 4px solid var(--verde);
 }
 
-/* Estilos para oscurecer y mejorar la visibilidad de las casillas del formulario */
+/* Casillas y selects con borde visible */
 .form-check-input,
 .form-select {
-  border: 2px solid #555555;
-  /* Borde oscuro y visible */
+  border: 2px solid #5f6b64;
   background-color: #ffffff;
 }
 
 .form-check-input:hover,
 .form-select:hover {
-  border-color: var(--azul);
+  border-color: var(--tinta);
 }
 
 .form-check-input:checked {
-  background-color: var(--azul);
-  border-color: var(--azul);
-  box-shadow: 0 0 0 2px rgba(11, 42, 91, 0.25);
+  background-color: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
 }
 
-/* Oscurecer también los botones radio dentro de la tabla */
+.form-check-input:focus,
+.form-select:focus {
+  border-color: var(--verde-oscuro);
+  box-shadow: 0 0 0 0.2rem rgba(0, 196, 106, 0.3);
+}
+
 .table input[type="radio"] {
   width: 18px;
   height: 18px;
-  accent-color: var(--azul);
+  accent-color: var(--verde-oscuro);
   cursor: pointer;
 }
 
-/* --- Pestañas de Deialdiak (Egutegia) --- */
+/* ---------- Pestañas de Deialdiak (Egutegia) ---------- */
 .nav-tabs-corp {
-  border-bottom: 2px solid var(--azul);
+  border-bottom: 2px solid var(--tinta);
 }
 
 .nav-tabs-corp .nav-link {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 600;
   border: 1px solid var(--borde);
   border-bottom: none;
   background-color: #ffffff;
   margin-right: 6px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  transition: all 0.2s ease;
+  border-top-left-radius: var(--radio-sm);
+  border-top-right-radius: var(--radio-sm);
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .nav-tabs-corp .nav-link:hover {
-  background-color: var(--fondo);
-  color: var(--azul-hover);
+  background-color: var(--verde-suave);
+  color: var(--tinta);
   border-color: var(--borde);
 }
 
-/* Pestaña seleccionada (Oscura basada en --azul) */
 .nav-tabs-corp .nav-link.active {
-  background-color: var(--azul) !important;
+  background-color: var(--tinta) !important;
   color: #ffffff !important;
-  border-color: var(--azul) !important;
-  box-shadow: 0 -2px 6px rgba(11, 42, 91, 0.15);
+  border-color: var(--tinta) !important;
+  box-shadow: inset 0 3px 0 var(--verde);
 }
 
-/* --- Tarjetas y Cuadrícula de Calendarios --- */
+/* ---------- Calendarios ---------- */
 .calendar-card {
-  background-color: #fff;
+  background-color: var(--superficie);
   border: 1px solid var(--borde);
-  border-radius: 0.5rem;
+  border-radius: var(--radio);
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--sombra-sm);
 }
 
 .calendar-header {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
@@ -425,7 +476,7 @@ footer a:hover {
 .day-header {
   font-weight: 600;
   font-size: 0.85rem;
-  color: #6c757d;
+  color: var(--texto-suave);
   padding-bottom: 6px;
 }
 
@@ -436,66 +487,65 @@ footer a:hover {
   justify-content: center;
   font-size: 0.9rem;
   font-weight: 500;
-  border-radius: 0.25rem;
-  background-color: #f8f9fa;
-  color: var(--azul);
+  border-radius: var(--radio-sm);
+  background-color: var(--niebla);
+  color: var(--texto);
 }
 
 .day-cell.empty {
   background-color: transparent;
 }
 
-/* --- Colores de Eventos en los Calendarios --- */
+/* Colores de eventos (se mantienen distinguibles entre sí) */
 .day-event-verde {
-  background-color: #28a745 !important;
-  color: #fff !important;
+  background-color: var(--verde) !important;
+  color: var(--tinta) !important;
   font-weight: 700;
 }
 
 .day-event-azul {
-  background-color: var(--azul-hover) !important;
+  background-color: #2b8fc4 !important;
   color: #fff !important;
   font-weight: 700;
 }
 
 .day-event-naranja {
-  background-color: #fd7e14 !important;
+  background-color: #f08019 !important;
   color: #fff !important;
   font-weight: 700;
 }
 
 .day-event-rojo {
-  background-color: #dc3545 !important;
+  background-color: #d63a4a !important;
   color: #fff !important;
   font-weight: 700;
 }
 
 .day-event-rosa {
-  background-color: #f700ff !important;
+  background-color: #c13584 !important;
   color: #fff !important;
   font-weight: 700;
 }
 
-/* --- Cajas de la Leyenda --- */
+/* Leyenda */
 .legend-box {
   width: 20px;
   height: 20px;
-  border-radius: 4px;
+  border-radius: 6px;
   display: inline-block;
   flex-shrink: 0;
 }
 
-/* Ohar edo oin-ohar estiloa leyendaren barruan */
 .legend-note {
-  opacity: 0.75;
+  opacity: 0.9;
   font-size: 0.85rem !important;
-  color: #556070;
+  color: var(--texto-suave);
   border-top: 1px dashed var(--borde);
   padding-top: 0.75rem;
   margin-top: 0.5rem;
 }
 
-/* --- Estilos específicos para la página de Login (gral_gunea.html) --- */
+/* ---------- Login (gral_gunea.html) ---------- */
 .login-container {
   min-height: calc(100vh - 160px);
   display: flex;
@@ -504,36 +554,63 @@ footer a:hover {
 }
 
 .login-card {
-  background-color: #fff;
+  background-color: var(--superficie);
   border: 1px solid var(--borde);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(11, 42, 91, 0.08);
+  border-top: 5px solid var(--verde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-lg);
   padding: 2.5rem;
   width: 100%;
   max-width: 420px;
 }
 
 .login-title {
-  color: var(--azul);
+  color: var(--tinta);
   font-weight: 700;
   font-size: 1.75rem;
+  letter-spacing: -0.03em;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .login-subtitle {
-  color: #555;
+  color: var(--texto-suave);
   font-size: 0.95rem;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .login-card .form-control {
-  border: 2px solid #555555;
+  border: 2px solid #5f6b64;
+  border-radius: var(--radio-sm);
   padding: 0.75rem 1rem;
 }
 
 .login-card .form-control:focus {
-  border-color: var(--azul);
-  box-shadow: 0 0 0 2px rgba(11, 42, 91, 0.25);
+  border-color: var(--verde-oscuro);
+  box-shadow: 0 0 0 0.2rem rgba(0, 196, 106, 0.3);
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 992px) {
+  .menu .btn {
+    padding: 1.3rem 1.5rem;
+    font-size: 1.15rem;
+  }
+
+  .menu .ficha {
+    width: 68px;
+    height: 68px;
+    padding: 12px;
+  }
+}
+
+/* ---------- Accesibilidad: reducir movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
