@@ -499,7 +499,6 @@ footer a:hover {
   background-color: transparent;
 }
 
-/* Colores de eventos (se mantienen distinguibles entre sí) */
 .day-event-verde {
   background-color: var(--verde) !important;
   color: var(--tinta) !important;

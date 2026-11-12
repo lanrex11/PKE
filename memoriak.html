@@ -6,22 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Memoriak - GrAL</title>
 
-    <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS Personalizado Externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Menú flotante superior izquierdo -->
     <div id="header-container"></div>
 
     <main class="flex-grow-1">
 
-        <!-- Cabecera limpia con título y línea -->
         <div class="document-header">
             <div class="container">
                 <h1 class="document-title">Aurreko urteko GrAL-ak</h1>
@@ -33,7 +28,6 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
 
-                    <!-- Sección de Introducción y Botón a ADDI -->
                     <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm border mb-5">
                         <h2 class="h4 fw-bold mb-3" style="color: var(--azul);">Zer da ADDI?</h2>
                         <p>
@@ -50,7 +44,6 @@
                             daitezke, bai izenburu, bai egile, edota lanen gaiak kontuan izanik beti ere nahi den
                             hizkuntzan, euskaraz, gaztelaniaz eta ingeleraz.
                         </p>
-                        <!-- Botón para ir a ADDI (aquí pondrás tu enlace) -->
                         <a href="https://addi.ehu.es/" target="_blank" class="btn btn-corp-custom px-4 py-2">
                             Joan ADDI webgunera
                         </a>
@@ -63,13 +56,10 @@
 
     </main>
 
-    <!-- Footer -->
     <div id="footer-container"></div>
 
-    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scripts de carga dinámica -->
     <script>
         fetch('menu.html')
             .then(response => response.text())
