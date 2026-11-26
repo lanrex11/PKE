@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Saioa Hasi - GrAL</title>
+    <title>GrAL Gunea - Saioa Hasi</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,12 +16,13 @@
     <!-- Menú flotante superior izquierdo -->
     <div id="header-container"></div>
 
-    <main class="flex-grow-1 login-container">
+    <!-- SECCIÓN 1: FORMULARIO DE INICIO DE SESIÓN -->
+    <main id="loginSection" class="flex-grow-1 login-container">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-5">
 
-                    <div class="login-card">
+                    <div class="login-card mx-auto">
                         <h1 class="login-title">GrAL Gunea</h1>
                         <p class="login-subtitle">Sartu zure erabiltzailea eta pasahitza</p>
 
@@ -49,15 +50,181 @@
         </div>
     </main>
 
+    <main id="dashboardSection" class="flex-grow-1 d-none">
+
+        <div class="document-header">
+            <div class="container">
+                <h1 class="document-title">GrAL Gunea</h1>
+                <div class="document-underline"></div>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+
+                    <div class="bg-white p-4 rounded-3 border shadow-sm mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 fw-bold mb-0">Ikaslearen bilaketa</h2>
+                            <button type="button" onclick="handleLogout()" class="btn btn-corp-custom py-2 px-3">Saioa itxi</button>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Bilatu izena edo NAN (adib. Ane, Mikel, Irati edo 72541890A)..." oninput="buscarAlumno()">
+                            <button type="button" class="btn btn-outline-secondary" onclick="limpiarBusqueda()">Garbitu</button>
+                        </div>
+                    </div>
+
+                    <div id="noResultsAlert" class="alert alert-warning text-center fw-semibold d-none" role="alert">
+                        Ez da ikaslerik aurkitu izen edo NAN horrekin.
+                    </div>
+
+                    <div id="fitxaWrapper" class="bg-white rounded-3 border shadow-sm p-4 p-md-5">
+
+                        <div class="d-flex justify-content-between align-items-start gap-3 pb-3 mb-4 border-bottom">
+                            <div>
+                                <div class="fitxa-kicker mb-1">IKASLEAREN FITXA</div>
+                                <h3 id="fitxaNombre" class="h2 fw-bold fitxa-nombre-dark mb-1">Ane Etxebarria</h3>
+                                <p id="fitxaNan" class="fitxa-subtexto-dark mb-0">NAN: 72541890A</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-12 col-md-4">
+                                <div class="metric-card">
+                                    <div>
+                                        <div class="metric-label">GAINDITUTAKO KREDITUAK</div>
+                                        <div class="metric-value">
+                                            <span id="fitxaCreditos">180</span> <span class="metric-subvalue">/ 180</span>
+                                        </div>
+                                        <div class="metric-bar">
+                                            <div id="fitxaBarra" class="metric-bar-fill-ok" style="width: 100%;"></div>
+                                        </div>
+                                    </div>
+                                    <p class="metric-note">Gutxienekoa: 180 kreditu.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="metric-card">
+                                    <div>
+                                        <div class="metric-label">MATRIKULA MOTA</div>
+                                        <div id="fitxaMatrikula" class="metric-value fs-4 mt-2">Ezohiko deialdia</div>
+                                    </div>
+                                    <p class="metric-note">2026/2027 ikasturtea.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="metric-card simbolo-grande-card">
+                                    <span id="fitxaSimbolo" class="simbolo-grande-ok">&#10003;</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
     <div id="footer-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        const ikasleak = [
+            {
+                nombre: "Ane Etxebarria",
+                nan: "72541890A",
+                creditos: 180,
+                porcentaje: "100%",
+                matrikula: "Ezohiko deialdia",
+                puedePresentarse: true
+            },
+            {
+                nombre: "Mikel Zubizarreta",
+                nan: "44689213K",
+                creditos: 168,
+                porcentaje: "93%",
+                matrikula: "Ohiko deialdia",
+                puedePresentarse: false
+            },
+            {
+                nombre: "Irati Mendizabal",
+                nan: "72810455M",
+                creditos: 180,
+                porcentaje: "100%",
+                matrikula: "Ohiko deialdia",
+                puedePresentarse: true
+            }
+        ];
+
+        function renderAlumno(alumno) {
+            document.getElementById('fitxaWrapper').classList.remove('d-none');
+            document.getElementById('noResultsAlert').classList.add('d-none');
+
+            document.getElementById('fitxaNombre').textContent = alumno.nombre;
+            document.getElementById('fitxaNan').textContent = `NAN: ${alumno.nan}`;
+            document.getElementById('fitxaCreditos').textContent = alumno.creditos;
+            document.getElementById('fitxaMatrikula').textContent = alumno.matrikula;
+
+            const barra = document.getElementById('fitxaBarra');
+            const simbolo = document.getElementById('fitxaSimbolo');
+
+            barra.style.width = alumno.porcentaje;
+
+            if (alumno.puedePresentarse) {
+                barra.className = "metric-bar-fill-ok";
+                simbolo.className = "simbolo-grande-ok";
+                simbolo.innerHTML = "&#10003;";
+            } else {
+                barra.className = "metric-bar-fill-fail";
+                simbolo.className = "simbolo-grande-fail";
+                simbolo.innerHTML = "&#10005;";
+            }
+        }
+
+        function buscarAlumno() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            if (!query) {
+                renderAlumno(ikasleak[0]);
+                return;
+            }
+
+            const encontrado = ikasleak.find(a =>
+                a.nombre.toLowerCase().includes(query) || a.nan.toLowerCase().includes(query)
+            );
+
+            if (encontrado) {
+                renderAlumno(encontrado);
+            } else {
+                document.getElementById('fitxaWrapper').classList.add('d-none');
+                document.getElementById('noResultsAlert').classList.remove('d-none');
+            }
+        }
+
+        function limpiarBusqueda() {
+            document.getElementById('searchInput').value = '';
+            renderAlumno(ikasleak[0]);
+        }
+
         function handleLogin(event) {
             event.preventDefault();
-            const user = document.getElementById('username').value;
-            alert(`Kaixo, ${user}!`);
+            document.getElementById('loginSection').classList.add('d-none');
+            document.getElementById('dashboardSection').classList.remove('d-none');
+            renderAlumno(ikasleak[0]);
+        }
+
+        function handleLogout() {
+            document.getElementById('loginForm').reset();
+            document.getElementById('searchInput').value = '';
+            document.getElementById('dashboardSection').classList.add('d-none');
+            document.getElementById('loginSection').classList.remove('d-none');
         }
     </script>
 
