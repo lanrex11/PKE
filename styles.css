@@ -281,7 +281,7 @@ footer a:hover {
 }
 
 .menu-flotante-btn {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   z-index: 1030;
@@ -599,6 +599,12 @@ footer a:hover {
 
 /* ---------- Escritorio ---------- */
 @media (min-width: 992px) {
+  #header-container {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+  }
+
   .menu-escritorio {
     display: flex;
     align-items: center;
