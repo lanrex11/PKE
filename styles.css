@@ -276,6 +276,10 @@ footer a:hover {
 }
 
 /* ---------- Menú flotante (hamburguesa, a la izquierda) ---------- */
+.menu-escritorio {
+  display: none;
+}
+
 .menu-flotante-btn {
   position: absolute;
   top: 20px;
@@ -595,6 +599,43 @@ footer a:hover {
 
 /* ---------- Escritorio ---------- */
 @media (min-width: 992px) {
+  .menu-escritorio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    width: 100%;
+    padding: 0.65rem 1rem;
+    background-color: var(--tinta);
+    border-bottom: 4px solid var(--verde);
+  }
+
+  .menu-escritorio a {
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--radio-sm);
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .menu-escritorio a:hover,
+  .menu-escritorio a:focus-visible {
+    background-color: var(--verde);
+    color: var(--tinta);
+  }
+
+  .menu-escritorio a:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  .menu-flotante-btn,
+  #menuLateral {
+    display: none;
+  }
+
   .menu .btn {
     padding: 1.3rem 1.5rem;
     font-size: 1.15rem;
