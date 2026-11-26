@@ -1,3 +1,30 @@
+<div class="appearance-settings">
+  <button class="appearance-settings-toggle" type="button" data-appearance-panel-toggle
+    aria-controls="appearanceSettingsPanel" aria-expanded="false" aria-label="Abrir ajustes de visualización">
+    <span aria-hidden="true">Aa</span>
+  </button>
+  <section class="appearance-settings-panel" id="appearanceSettingsPanel" aria-labelledby="appearanceSettingsTitle"
+    hidden>
+    <div class="appearance-settings-header">
+      <h2 class="h6 mb-0" id="appearanceSettingsTitle">Ajustes de visualización</h2>
+      <button class="appearance-settings-close" type="button" data-appearance-panel-close aria-label="Cerrar ajustes">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <button class="appearance-theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span data-theme-toggle-label>Activar modo oscuro</span>
+    </button>
+    <div class="font-size-setting">
+      <span>Tamaño de letra</span>
+      <div class="font-size-controls" role="group" aria-label="Tamaño de letra">
+        <button type="button" data-font-decrease aria-label="Reducir tamaño de letra">A-</button>
+        <output data-font-size-value aria-live="polite">100%</output>
+        <button type="button" data-font-increase aria-label="Aumentar tamaño de letra">A+</button>
+      </div>
+    </div>
+  </section>
+</div>
+
 <nav class="menu-escritorio" aria-label="Nabigazio nagusia">
   <a href="hasiera.html">Hasiera</a>
   <a href="araudia.html">Araudia</a>
